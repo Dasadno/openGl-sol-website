@@ -1,26 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@300;400;500;600;700&family=Satoshi:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-body: 'Satoshi', system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Legacy fallbacks (kept for any callers not yet migrated) */
+  --bg-fallback: #06060a;
+  --text-fallback: #ffffff;
+  --solana-gradient: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+
+  /* Easing curves */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* OKLCH palette — Solana-hue 290 tint across neutrals */
+  --bg-0: oklch(11% 0.025 290);
+  --bg-1: oklch(14% 0.030 290);
+  --bg-2: oklch(18% 0.035 290);
+  --surface: oklch(20% 0.040 290 / 0.55);
+  --text: oklch(96% 0.005 290);
+  --text-dim: oklch(72% 0.015 290);
+  --text-mute: oklch(55% 0.018 290);
+  --accent: oklch(68% 0.18 290);
+  --accent-soft: oklch(80% 0.10 290);
+  --line: oklch(70% 0.04 290 / 0.10);
+  --line-strong: oklch(70% 0.04 290 / 0.20);
+  --pos: oklch(72% 0.16 145);
+  --neg: oklch(62% 0.18 25);
+
+  /* Typography aliases */
+  --font-italic-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    font-family: var(--font-body), system-ui, sans-serif;
+    background-color: var(--bg-fallback);
+    color: var(--text-fallback);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-display {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text-center-perfect {
+  text-align: center;
+}
+
+.balanced-text {
+  text-wrap: balance;
+}
+
+.gradient-text {
+  background: var(--solana-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(153, 69, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153, 69, 255, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.backdrop-blur-glass {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(17, 17, 21, 0.72);
+  border: 1px solid rgba(153, 69, 255, 0.08);
+}
+
+.backdrop-blur-glass-strong {
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  background: rgba(17, 17, 21, 0.88);
+  border: 1px solid rgba(153, 69, 255, 0.12);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: transform 160ms var(--ease-out-strong), box-shadow 200ms var(--ease-out-strong);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px -20px rgba(153, 69, 255, 0.55);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.97);
+  transition-duration: 100ms;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(153, 69, 255, 0.3);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 160ms var(--ease-out-strong);
+}
+
+.btn-secondary:hover {
+  background: rgba(153, 69, 255, 0.08);
+  border-color: rgba(153, 69, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px) scale(0.97);
+  transition-duration: 100ms;
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(183, 148, 246, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text {
+    animation: none;
+    background-position: 0% 50%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01s !important;
+  }
 }
