@@ -51,7 +51,26 @@
 npm run dev   # → http://localhost:3000
 ```
 
-> **Скриншоты.** Сцена рендерится на GPU в реальном времени, поэтому изображения лучше снимать в браузере вручную. Положите файлы в `docs/screenshots/` под именами ниже — и они подтянутся в таблицу автоматически.
+> Сайт разделен на сцены, здесь будет показан их внешний вид
+
+Сцена N1 
+<img width="2742" height="1609" alt="image" src="https://github.com/user-attachments/assets/3ef6af63-ea88-4acc-b788-6dc27630d7eb" />
+Сцена N2 
+<img width="2751" height="1630" alt="image" src="https://github.com/user-attachments/assets/0b50d704-75b2-44ce-bc2d-a2867e73060a" />
+Сцена N3 
+<img width="2781" height="1626" alt="image" src="https://github.com/user-attachments/assets/5b095964-157a-42d4-83ff-d114d1630fe5" />
+Сцена N4 
+<img width="2775" height="1636" alt="image" src="https://github.com/user-attachments/assets/55f9dce8-c26e-4626-aee7-e876e4a3a452" />
+Сцена N5
+<img width="2797" height="1642" alt="image" src="https://github.com/user-attachments/assets/39c8151b-cb4e-4657-8599-17052b00cc5d" />
+Сцена N6 
+<img width="2785" height="1672" alt="image" src="https://github.com/user-attachments/assets/14ce677d-e218-4471-85f2-85248984af62" />
+Сцена N7
+<img width="2761" height="1606" alt="image" src="https://github.com/user-attachments/assets/5a4ddfee-6b0a-442d-b72d-a45b8596b32f" />
+
+
+
+
 
 | Глава | Кадр | Что показывает |
 |-------|------|----------------|
