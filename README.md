@@ -1,9 +1,9 @@
 <div align="center">
 
-# SolanaDefi — «Финансы будущего»
+# SolanaDefi
 
-**Кинематографичный scroll-driven лендинг для финтех-продукта на Solana.**
-Камера летит по спирали сквозь девять «глав», проходя путь от логотипа в космосе до торгового терминала — целиком в WebGL.
+**scroll-driving лендинг для финтех-продукта на Solana.**
+
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
